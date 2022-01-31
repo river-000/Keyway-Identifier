@@ -1,0 +1,16 @@
+https://www.ilco.us/ilco-en/support/downloads/key-blank-directory
+
+convert -density 300 -quality 90 pdfs/dwn-key-blank-directory-05-international-cylinder-sec-3-en.pdf -alpha off -grayscale average -define png:color-type=6 images/out.png
+
+python -m venv envname
+source envname/bin/activate
+python -m pip install --upgrade pip
+pip install numpy opencv-python
+
+source envname/bin/activate
+
+# Convert an image to its distance transform
+python distance_transform.py --input ./images/dwn-key-blank-directory-05-international-cylinder-sec-3-en-3.png --display True --output out.png
+
+# Convert a folder of images to distance transform
+./distance_transform.sh ./images ./images\ distance/
