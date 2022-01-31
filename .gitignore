@@ -1,7 +1,10 @@
 # virtualenv
 envname/
 
-# Data
+# data
 pdfs/
 images/
 images distance/
+
+# python
+__pycache__/
