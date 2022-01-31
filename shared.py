@@ -27,3 +27,17 @@ def display_image(image, normalize=False):
     cv.moveWindow(title, 0, 0)
     cv.imshow(title, input_scaled)
     cv.waitKey()
+
+def distance_transform(input, display=False):
+    if display:
+        display_image(input)
+    stage1 = cv.Canny(input, 100, 200)
+    if display:
+        display_image(stage1)
+    stage2 = np.invert(stage1)
+    if display:
+        display_image(stage2)
+    stage3 = cv.distanceTransform(stage2, cv.DIST_L2, 3)
+    if display:
+        display_image(stage3, normalize=True)
+    return stage3
